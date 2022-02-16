@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
 
+:root {
+  --mainColor: #64bcf4;
+  --hoverColor: #5bacdf;
+  --backgroundColor: #f1f8fc;
+  --darkOne: #312f3a;
+  --darkTwo: #45424b;
+  --lightOne: #919191;
+  --lightTwo: #aaa;
+}
+
 *,
 *::before,
 *::after {
@@ -12,10 +22,27 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-svg {
-  width: 100%;
-}
-
 a {
   text-decoration: none;
+}
+
+.big-wrapper {
+  padding: 1.7rem 0 2rem;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--backgroundColor);
+}
+
+.container {
+  position: relative;
+  max-width: 81rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 3rem;
+  z-index: 10;
+}
+
+.logo svg {
+  width: 40px;
 }
