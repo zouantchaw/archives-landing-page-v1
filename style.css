@@ -27,6 +27,7 @@ a {
 }
 
 .big-wrapper {
+  position: relative;
   padding: 1.7rem 0 2rem;
   width: 100%;
   min-height: 100vh;
@@ -135,4 +136,43 @@ header .container {
 
 .showcase-area .btn {
   box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
+}
+
+.toggle-btn {
+  display: inline-block;
+  border: none;
+  background: var(--darkTwo);
+  color: var(--backgroundColor);
+  outline: none;
+  cursor: pointer;
+  height: 39px;
+  width: 39px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.toggle-btn i {
+  line-height: 39px;
+}
+
+/* .toggle-btn i:first-child {
+  display: none;
+} */
+
+.fa-sun {
+  display: none;
+}
+
+.toggle-btn:hover {
+  background: var(--mainColor);
+}
+
+.shape {
+  position: absolute;
+  z-index: 0;
+  width: 500px;
+  bottom: -400px;
+  left: -25px;
+  rotate: 9;
 }
