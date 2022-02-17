@@ -94,3 +94,11 @@ header .container {
   background-color: var(--hoverColor);
   transform: scale(1) !important;
 }
+
+.input {
+  display: inline-block;
+  padding: 0.9rem 1.9rem;
+  border-radius: 16px;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+}
