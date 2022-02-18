@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
 
-:root {
+.light {
   --mainColor: #64bcf4;
   --hoverColor: #3b3b3b;
   --backgroundColor: #f1f8fc;
@@ -8,6 +8,16 @@
   --darkTwo: #45424b;
   --lightOne: #919191;
   --lightTwo: #aaa;
+}
+
+.dark {
+  --mainColor: #64bcf4;
+  --hoverColor: #5bacdf;
+  --backgroundColor: #192e3a;
+  --darkOne: #f3f3f3;
+  --darkTwo: #fff;
+  --lightOne: #ccc;
+  --lightTwo: #e7e3e3;
 }
 
 *,
@@ -156,23 +166,31 @@ header .container {
   line-height: 39px;
 }
 
-/* .toggle-btn i:first-child {
-  display: none;
-} */
-
-.fa-sun {
-  display: none;
-}
-
 .toggle-btn:hover {
   background: var(--mainColor);
 }
 
-.shape {
+.big-wrapper.en .toggle-en {
+  display: none;
+}
+
+.big-wrapper.en .toggle-fr {
+  display: block;
+}
+
+.big-wrapper.fr .toggle-fr {
+  display: none;
+}
+
+.big-wrapper.fr .toggle-en {
+  display: block;
+}
+
+/* .shape {
   position: absolute;
   z-index: 0;
   width: 500px;
-  bottom: -400px;
-  left: -25px;
+  bottom: 100px;
+  left: -398px;
   rotate: 9;
-}
+} */
