@@ -194,3 +194,11 @@ header .container {
   left: -398px;
   rotate: 9;
 } */
+
+/* Put cloned element infront of main element */
+.copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
