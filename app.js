@@ -2,43 +2,55 @@
 var toggle_btn = document.querySelector(".toggle-btn");
 var big_wrapper = document.querySelector(".big-wrapper");
 const main = document.querySelector("main");
+let allTraslateElements = document.querySelectorAll("[data-i18n-key]");
+let languageToggle = document.querySelector(".language-toggle");
 
-let french = false;
+// active locale
+let locale = "en";
 
-const mainFrenchHeader =
-  "Histoire et histoires de Montréal en moins de 5 minutes";
-const mainFrenchSubHeader =
-  "Recevez l'e-mail hebdomadaire où nous explorons différentes rues, bâtiments et quartiers à travers des photographies, des histoires et des personnes.";
+// English and French locales
+const translations = {
+  // English
+  en: {
+    "main-header": "History and stories of Montreal in under 5 minutes",
+    "sub-header":
+      "Get the weekly email where we explore different streets, buildings, and neighborhoods through photographs, stories, and people.",
+    "sign-up": "Sign Up",
+    "try-it": "Try It",
+  },
 
-function toggleAnimation() {
-  // Clone the wrapper
-  french = !french;
-  let clone = big_wrapper.cloneNode(true);
-  if (french) {
-    clone.classList.remove("en");
-    clone.classList.add("fr");
+  // French translations
+  fr: {
+    "main-header": "Histoire et récits de Montréal en moins de 5 minutes",
+    "sub-header":
+      "Recevez l'e-mail hebdomadaire dans lequel nous explorons différentes rues, bâtiments et quartiers à travers des photographies, des histoires et des personnes.",
+    "sign-up": "S'inscrire",
+    "try-it": "Essayer",
+  },
+};
+
+// When toggle button is clicked...
+toggle_btn.addEventListener("click", () => {
+  console.log("clicked");
+
+  //update locale and language btn
+  if (locale === "en") {
+    locale = "fr";
+    languageToggle.innerHTML = "EN"
   } else {
-    clone.classList.remove("fr");
-    clone.classList.add("en");
+    locale = "en";
+    languageToggle.innerHTML = "FR"
   }
-  clone.classList.add("copy");
-  let showcaseArea = clone.childNodes[5]
-  console.log(showcaseArea)
-  main.appendChild(clone);
+
+  // Invoke translateElement on allTranslateElement
+  allTraslateElements.forEach(translateElement);
+});
+
+// Replace the inner text of the given HTML element
+// with the translation in the active locale,
+// corresponding to the element's data-i18n-key
+function translateElement(element) {
+  const key = element.getAttribute("data-i18n-key");
+  const translation = translations[locale][key];
+  element.innerText = translation;
 }
-
-// Add event listeners
-toggle_btn.addEventListener("click", toggleAnimation);
-
-// clone.ChildNodes
-// {
-//   "0": {},
-//   "1": {},
-//   "2": {},
-//   "3": {},
-//   "4": {},
-//   "5": {},
-//   "6": {},
-//   "7": {},
-//   "8": {}
-// }
