@@ -57,10 +57,19 @@ a {
   z-index: 10;
 }
 
+header {
+  position: relative;
+  z-index: 70;
+}
+
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.overlay {
+  display: none;
 }
 
 .logo {
@@ -80,10 +89,6 @@ header .container {
   font-size: 1.55rem;
   line-height: 1.2;
   font-weight: 700;
-}
-
-.links {
-  display: none;
 }
 
 .links ul {
@@ -114,21 +119,24 @@ header .container {
 }
 
 .hamburger-menu {
+  position: relative;
+  z-index: 99;
   width: 2rem;
   height: 2rem;
-  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  display: none;
 }
 
 .hamburger-menu .bar {
   position: relative;
   width: 100%;
   height: 3px;
-  background-color: #fff;
+  background-color: black;
   border-radius: 3px;
+  transition: 5s;
 }
 
 .bar::before,
@@ -137,7 +145,7 @@ header .container {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--darkTwo);
   border-radius: 3px;
 }
 
@@ -147,6 +155,18 @@ header .container {
 
 .bar::after {
   transform: translateY(8px);
+}
+
+.big-wrapper.active .hamburger-menu .bar {
+  background-color: transparent;
+}
+
+.big-wrapper.active .bar::before {
+  transform: translateY(0) rotate(-45deg);
+}
+
+.big-wrapper.active .bar::after {
+  transform: translateY(0) rotate(45deg);
 }
 
 .input {
@@ -251,5 +271,62 @@ header .container {
   .main-img {
     width: 100%;
     transform: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 450px;
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+    z-index: 95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: 0.5s;
+  }
+
+  .links ul {
+    flex-direction: column;
+  }
+
+  .links a {
+    color: white;
+    margin-left: 0;
+    /* padding: 2rem 0; */
+  }
+
+  .links .btn {
+    background: none;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  .big-wrapper.active .links {
+    transform: translateX(0);
+    box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .big-wrapper.active .overlay {
+    pointer-events: all;
+    opacity: 1;
   }
 }

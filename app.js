@@ -2,9 +2,9 @@
 var toggle_btn = document.querySelector(".toggle-btn");
 var big_wrapper = document.querySelector(".big-wrapper");
 const main = document.querySelector("main");
-let allTraslateElements = document.querySelectorAll("[data-i18n-key]");
+let needsTranslation = document.querySelectorAll("[data-i18n-key]");
 let languageToggle = document.querySelector(".language-toggle");
-
+let hamburger_menu = document.querySelector('.hamburger-menu')
 // active locale
 let locale = "en";
 
@@ -29,6 +29,8 @@ const translations = {
   },
 };
 
+// Event Listeners
+
 // When toggle button is clicked...
 toggle_btn.addEventListener("click", () => {
   console.log("clicked");
@@ -42,9 +44,13 @@ toggle_btn.addEventListener("click", () => {
     languageToggle.innerHTML = "FR"
   }
 
-  // Invoke translateElement on allTranslateElement
-  allTraslateElements.forEach(translateElement);
+  // Invoke translateElement on needsTranslation
+  needsTranslation.forEach(translateElement);
 });
+
+hamburger_menu.addEventListener("click", () => {
+  big_wrapper.classList.toggle("active");
+})
 
 // Replace the inner text of the given HTML element
 // with the translation in the active locale,
